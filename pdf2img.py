@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 import fitz
 import time
+
 file_dir = 'D:\pdf2img'
 
 
@@ -17,7 +18,7 @@ def conver2jpg(filename):
         trans = fitz.Matrix(zoom_x, zoom_y).preRotate(rotate)
         pm = page.getPixmap(matrix=trans, alpha=False)
         # pm.writePNG('%s.png' % pg)
-        pm.writePNG(f'{str(filename).split(".")[0]}.jpg')
+        pm.writePNG(f'{str(filename).split(".")[0]}_'+str(pg)+'.jpg')
 
 count = 0
 # 用来打开所有的文件,并对每一个文件调用比对方法
